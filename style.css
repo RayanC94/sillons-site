@@ -170,6 +170,51 @@
   footer .copyright{text-align:center;margin-top:30px;color:var(--muted)}
   
   /* =========================
+     STYLE POUR SECTION AVEC IMAGE DE FOND (PRESENTATION)
+     ========================= */
+  
+  #presentation { /* On cible l'ID pour garantir que les styles s'appliquent ici */
+      position: relative;
+      overflow: hidden;
+      background: #0f1013; /* Fond de repli/sombre pour l'image */
+  }
+  
+  #presentation .container.reveal {
+      position: relative; 
+      z-index: 20; /* Place le contenu au-dessus de l'image (z-index 10) */
+  }
+  
+  .section-media {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+  }
+  
+  .section-bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Flou appliqué et assombrissement */
+      filter: blur(8px) brightness(0.65) contrast(1.1); 
+      transform: scale(1.05); /* Évite les bordures floues */
+  }
+  
+  .section-overlay {
+      position: absolute;
+      inset: 0;
+      /* Overlay sombre pour garantir la lisibilité du texte clair */
+      background: rgba(0, 0, 0, 0.4); 
+  }
+  
+  /* On modifie les cartes (card.glass) pour qu'elles aient un fond un peu plus opaque si l'image les rend illisibles */
+  #presentation .card.glass {
+      /* Augmente l'opacité du verre pour mieux lire sur l'image */
+      background: rgba(255,255,255,.08); /* Plus opaque que .06 */
+      backdrop-filter: blur(4px);
+  }
+  
+  /* =========================
      REVEAL ANIM
      ========================= */
   .reveal{opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease}
@@ -194,4 +239,3 @@
   @media (prefers-reduced-motion: reduce){
     .marquee .track, .hero-title span{animation: none}
   }
-  

@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SILLONS — Cycle Ciné-Débats 2025/26</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="preload" as="video" href="video/fond_sillons.mp4">
 </head>
 
 <body>
-  <!-- NAV -->
   <header class="site-header" aria-label="Barre de navigation">
     <div class="nav-wrap">
       <a href="#hero" class="brand">
@@ -28,7 +25,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section id="hero" class="hero">
     <video class="hero-video" autoplay muted loop playsinline poster="images/logo.png">
       <source src="video/fond_sillons.mp4" type="video/mp4" />
@@ -48,7 +44,6 @@
       </div>
     </div>
 
-    <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="track">
         <span>• Saison 2025/26 • Expositions à chaque projection • Débats avec expert •</span>
@@ -60,8 +55,11 @@
     </div>
   </section>
 
-  <!-- PRESENTATION -->
-  <section id="presentation" class="section section-light">
+  <section id="presentation" class="section section-light section-with-bg">
+    <div class="section-media">
+        <img src="images/regard_floute.jpg" alt="Regard flouté en arrière-plan" class="section-bg-image" />
+        <div class="section-overlay"></div>
+    </div>
     <div class="container reveal">
       <div class="section-head">
         <h2 class="section-title">SILLONS</h2>
@@ -94,7 +92,6 @@
     </div>
   </section>
 
-  <!-- PROGRAMME -->
   <section id="programme" class="section section-dark">
     <div class="container">
       <div class="section-head reveal">
@@ -102,7 +99,6 @@
         <p class="section-kicker light">Cinq rendez-vous, cinq débats avec expert, cinq expositions</p>
       </div>
 
-      <!-- Événement 1 -->
       <article class="film-card reveal">
         <figure class="film-media">
           <img src="images/visuels_films/farha.jpg" alt="Affiche du film Farha (2017)" loading="lazy" />
@@ -117,7 +113,6 @@
         </div>
       </article>
 
-      <!-- Événement 2 -->
       <article class="film-card reverse reveal">
         <figure class="film-media">
           <img src="images/visuels_films/matewan.jpg" alt="Affiche du film Matewan (1987)" loading="lazy" />
@@ -132,7 +127,6 @@
         </div>
       </article>
 
-      <!-- Événement 3 -->
       <article class="film-card reveal">
         <figure class="film-media">
           <img src="images/visuels_films/mississippi_burning.jpg" alt="Affiche du film Mississippi Burning (1988)" loading="lazy" />
@@ -147,7 +141,6 @@
         </div>
       </article>
 
-      <!-- Événement 4 -->
       <article class="film-card reverse reveal">
         <figure class="film-media">
           <img src="images/visuels_films/mauritanian.jpeg" alt="Affiche du film The Mauritanian (2021)" loading="lazy" />
@@ -162,7 +155,6 @@
         </div>
       </article>
 
-      <!-- Événement 5 -->
       <article class="film-card reveal">
         <figure class="film-media">
           <img src="images/visuels_films/panther.jpg" alt="Affiche du film Panther (1995) — Partie I" loading="lazy" />
@@ -179,7 +171,6 @@
     </div>
   </section>
 
-  <!-- FOOTER / INFOS PRATIQUES -->
   <footer id="pratique" class="section section-light">
     <div class="container reveal">
       <div class="section-head">
@@ -208,7 +199,6 @@
     </div>
   </footer>
 
-  <!-- Scroll-reveal (respecte prefers-reduced-motion) -->
   <script>
     (function () {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
