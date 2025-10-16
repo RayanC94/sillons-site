@@ -50,6 +50,38 @@
     transition:.25s background;
   }
   .nav .pill:hover{background:var(--glass)}
+
+  /* NOUVEAUX STYLES HAMBURGER */
+  .menu-toggle {
+      display: none; /* Caché par défaut sur desktop */
+      background: none;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 50;
+      transition: transform 0.3s ease;
+  }
+
+  .icon-bar {
+      display: block;
+      width: 24px;
+      height: 3px;
+      margin: 4px 0;
+      background-color: var(--fg);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+  }
+
+  /* Animation de la croix */
+  .menu-toggle[aria-expanded="true"] .icon-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+      opacity: 0;
+  }
+  .menu-toggle[aria-expanded="true"] .icon-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+  }
   
   /* =========================
      HERO
@@ -314,11 +346,53 @@
   @media (max-width: 1100px){
     .film-card, .film-card.reverse{grid-template-columns:1fr}
     .film-media img{height:360px}
+    
+    /* Correction N°2 : Assurer que l'image est toujours en premier sur mobile */
+    .film-card.reverse .film-media{order: -1;} 
+    .film-card.reverse .film-content{order: 1;} 
   }
+  
   @media (max-width: 860px){
+    /* Menu Hamburger */
+    .menu-toggle {
+      display: block; /* Afficher le bouton hamburger */
+    }
+    
+    .nav {
+      position: absolute;
+      top: 100%; /* Sous le header */
+      left: 0;
+      right: 0;
+      /* display: none est géré par la balise <style> dans le HTML pour éviter le flash */
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg-soft); 
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+
+    /* La navigation ouverte grâce à la classe ajoutée par JS */
+    .nav.is-open {
+      display: flex;
+    }
+
+    .nav a {
+      margin: 8px 0; /* Espacement vertical */
+      padding: 8px 16px;
+      width: 100%;
+      text-align: center;
+      margin-left: 0; /* Annule le margin-left desktop */
+      opacity: 1; /* S'assurer que les liens sont bien visibles */
+    }
+
+    .nav .pill {
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+
     .grid-2{grid-template-columns:1fr}
-    .nav a{margin-left:12px}
   }
+
   @media (max-width: 600px){
     .film-media img{height:280px}
     .marquee{display:none}
